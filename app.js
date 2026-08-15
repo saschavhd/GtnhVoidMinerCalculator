@@ -13,6 +13,7 @@ const gasSelect = document.querySelector("#gas-select");
 const outputCard = document.querySelector("#output-card");
 const outputRate = document.querySelector("#output-rate");
 const outputDetail = document.querySelector("#output-detail");
+const excludedDimensions = new Set(["EndAsteroids", "Asteroids", "KuiperBelt", "MehenBelt"]);
 
 let selectedDimension = null;
 
@@ -31,6 +32,7 @@ function materialName(identifier) {
 
 function matchingDimensions(oreIdentifier) {
   return Object.entries(voidMinerData.dimensions)
+    .filter(([name]) => !excludedDimensions.has(name))
     .map(([name, data]) => ({ name, probability: (data.materialWeights[oreIdentifier] ?? 0) / data.totalWeight }))
     .filter((dimension) => dimension.probability > 0)
     .sort((left, right) => right.probability - left.probability || left.name.localeCompare(right.name));
