@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Calculate GTNH Void Miner ore probabilities and expected output." />
+    <title>Void Miner Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="calculator-shell">
+      <header class="masthead">
+        <p class="eyebrow">GregTech: New Horizons</p>
+        <h1>Void Miner <span>Calculator</span></h1>
+        <p class="intro">Find the dimensions with the best chance of producing the ore you need.</p>
+      </header>
+
+      <section class="query-panel" aria-labelledby="ore-label">
+        <label id="ore-label" for="ore-select">Target ore</label>
+        <select id="ore-select">
+          <option value="">Select an ore</option>
+        </select>
+        <p id="ore-identifier" class="source-identifier" hidden></p>
+      </section>
+
+      <section id="results-panel" class="results-panel" aria-live="polite" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ranked dimensions</p>
+            <h2 id="results-title">Best sources</h2>
+          </div>
+          <span id="result-count" class="count"></span>
+        </div>
+        <div class="result-columns" aria-hidden="true"><span>Dimension</span><span>Chance</span></div>
+        <div id="dimension-results" class="dimension-results" role="listbox" aria-label="Dimensions"></div>
+      </section>
+
+      <section id="throughput-panel" class="throughput-panel" aria-labelledby="throughput-title" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected dimension</p>
+            <h2 id="throughput-title"></h2>
+          </div>
+          <button id="change-dimension" class="text-button" type="button">Change</button>
+        </div>
+        <div class="controls-grid">
+          <label for="tier-select">Miner tier
+            <select id="tier-select">
+              <option value="">Select tier</option>
+              <option value="2">Tier 1 · 2 ores/s</option>
+              <option value="4">Tier 2 · 4 ores/s</option>
+              <option value="6">Tier 3 · 6 ores/s</option>
+            </select>
+          </label>
+          <label for="gas-select">Booster gas
+            <select id="gas-select">
+              <option value="">Select gas</option>
+              <option value="4">Neon · ×4</option>
+              <option value="8">Krypton · ×8</option>
+              <option value="16">Xenon · ×16</option>
+              <option value="64">Oganesson · ×64</option>
+            </select>
+          </label>
+        </div>
+        <div id="output-card" class="output-card" hidden>
+          <p>Expected output</p>
+          <strong id="output-rate"></strong>
+          <span id="output-detail"></span>
+        </div>
+      </section>
+
+      <footer>
+        Based on the supplied vein definitions. Small-ore contributions are not included in this data snapshot.
+      </footer>
+    </main>
+  </body>
+</html>

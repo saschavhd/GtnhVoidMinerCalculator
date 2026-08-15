@@ -1,0 +1,9 @@
+{
+  "name": "gtnh-void-miner-calculator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract-ore-data.mjs",
+    "test": "npm run extract && node scripts/verify-ore-data.mjs"
+  }
+}
