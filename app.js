@@ -13,7 +13,7 @@ const gasSelect = document.querySelector("#gas-select");
 const outputCard = document.querySelector("#output-card");
 const outputRate = document.querySelector("#output-rate");
 const outputDetail = document.querySelector("#output-detail");
-const excludedDimensions = new Set(["EndAsteroids", "Asteroids", "KuiperBelt", "MehenBelt"]);
+const excludedDimensions = new Set(["THE_END", "Asteroids", "KuiperBelt", "MehenBelt"]);
 
 let selectedDimension = null;
 
